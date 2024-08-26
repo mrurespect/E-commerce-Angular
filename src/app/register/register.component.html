@@ -1,5 +1,10 @@
  <div class="w-75 mx-auto py-4">
   <h4>Register Now</h4>
+
+   <div class="alert alert-danger" *ngIf="apiError">
+      {{apiError}}
+   </div>
+
   <form (ngSubmit)="handleRegister(registerForm)" [formGroup]="registerForm">
     <label for="name"> name:</label>
     <input type="text" class="form-control mb-2" formControlName="name" id="name">
@@ -31,7 +36,12 @@
     <div class="alert alert-danger"  *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
       <p class="m-0" *ngIf="registerForm.get('phone')?.getError('required')">phone is required</p>
     </div>
-    <button [disabled]="registerForm.invalid" class="btn bg-main border-0 text-white ms-auto d-block" type="submit"> Register</button>
+    <button [disabled]="registerForm.invalid" class="btn bg-main border-0 text-white ms-auto d-block" type="submit">
+      <i *ngIf="isLoading;else mytemplate" class="fas fa-spinner fa-spin"></i>
+      <ng-template  #mytemplate>
+        <span>Register</span>
+      </ng-template>
+    </button>
   </form>
 
 </div>
