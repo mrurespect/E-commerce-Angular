@@ -25,7 +25,6 @@ export class LoginComponent {
   constructor(private _AuthService:AuthService,private _Router:Router) {
   }
   handleLogin(loginForm:FormGroup){
-    console.log(loginForm)
     this.isLoading=true;
     if (loginForm.valid){
 
@@ -39,7 +38,9 @@ export class LoginComponent {
       this._AuthService.login(loginForm.value).subscribe({
         next:(response)=>{
           if (response.message ==="success"){
-            // navigate Login
+            localStorage.setItem("userToken",response.token)
+            this._AuthService.decodeUserData();
+
             this._Router.navigate(["/home"]);
           }
         },

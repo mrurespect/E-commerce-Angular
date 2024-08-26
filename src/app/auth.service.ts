@@ -1,12 +1,20 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {jwtDecode} from "jwt-decode";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  userData=null
+
+  decodeUserData(){
+    let encodedToken =JSON.stringify(localStorage.getItem("userToken"));
+    let decodedToken:any =jwtDecode(encodedToken);
+    this.userData=decodedToken;
+  }
   constructor(private _HttpClient:HttpClient) { }
   register(userData:Object):Observable<any>{
       return this._HttpClient.post(
