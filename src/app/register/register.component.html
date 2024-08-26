@@ -1,1 +1,37 @@
-<p>register works!</p>
+ <div class="w-75 mx-auto py-4">
+  <h4>Register Now</h4>
+  <form (ngSubmit)="handleRegister(registerForm)" [formGroup]="registerForm">
+    <label for="name"> name:</label>
+    <input type="text" class="form-control mb-2" formControlName="name" id="name">
+    <div class="alert alert-danger"  *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched">
+      <p class="m-0" *ngIf="registerForm.get('name')?.getError('minlength')">Name minimum length is 3</p>
+      <p class="m-0" *ngIf="registerForm.get('name')?.getError('maxlength')">Name max length is 10</p>
+      <p class="m-0" *ngIf="registerForm.get('name')?.getError('required')">Name is required</p>
+    </div>
+    <label for="email"> email:</label>
+    <input type="email" class="form-control mb-2" formControlName="email" id="email">
+    <div class="alert alert-danger"  *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+      <p class="m-0" *ngIf="registerForm.get('email')?.getError('email')">Email invalid</p>
+      <p class="m-0" *ngIf="registerForm.get('email')?.getError('required')">Email is required</p>
+    </div>
+    <label for="password"> password:</label>
+    <input type="password" class="form-control mb-2" formControlName="password" id="password">
+    <div class="alert alert-danger"  *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+      <p class="m-0" *ngIf="registerForm.get('password')?.getError('pattern')">Password must start with an upper case letter</p>
+      <p class="m-0" *ngIf="registerForm.get('password')?.getError('required')">Password is required</p>
+    </div>
+    <label for="rePassword"> rePassword:</label>
+    <input type="password" class="form-control mb-2" formControlName="rePassword" id="rePassword">
+    <div class="alert alert-danger"  *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched">
+      <p class="m-0" *ngIf="registerForm.get('rePassword')?.getError('pattern')">Password must start with an upper case letter</p>
+      <p class="m-0" *ngIf="registerForm.get('rePassword')?.getError('required')">Password is required</p>
+    </div>
+    <label for="phone"> phone:</label>
+    <input type="tel" class="form-control mb-2" formControlName="phone" id="phone">
+    <div class="alert alert-danger"  *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
+      <p class="m-0" *ngIf="registerForm.get('phone')?.getError('required')">phone is required</p>
+    </div>
+    <button [disabled]="registerForm.invalid" class="btn bg-main border-0 text-white ms-auto d-block" type="submit"> Register</button>
+  </form>
+
+</div>
