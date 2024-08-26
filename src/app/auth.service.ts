@@ -1,21 +1,27 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {jwtDecode} from "jwt-decode";
+import {Router} from "@angular/router";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  userData=null
+  userData=new BehaviorSubject(null);
 
   decodeUserData(){
     let encodedToken =JSON.stringify(localStorage.getItem("userToken"));
     let decodedToken:any =jwtDecode(encodedToken);
-    this.userData=decodedToken;
+    this.userData.next(decodedToken);
+    console.log(decodedToken)
   }
-  constructor(private _HttpClient:HttpClient) { }
+  constructor(private _HttpClient:HttpClient,private _Router:Router) {
+    if (localStorage.getItem("userToken")!==null){
+      this.decodeUserData();
+    }
+  }
   register(userData:Object):Observable<any>{
       return this._HttpClient.post(
         "http://localhost:8080/register",userData
@@ -25,5 +31,10 @@ export class AuthService {
     return this._HttpClient.post(
       "http://localhost:8080/login",userData
     )
+  }
+  logout(){
+    localStorage.removeItem("userToken");
+    this.userData.next(null);
+    this._Router.navigate(['/login']);
   }
 }

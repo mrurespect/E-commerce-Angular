@@ -31,6 +31,8 @@ export class LoginComponent {
       /* this is just for testing , to delete when server side is running */
       setTimeout(() => {
         this.isLoading=false;
+        localStorage.setItem("userToken","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
+        this._AuthService.decodeUserData();
         this._Router.navigate(["/home"]);
       }, 2000); // just a delay to see the spiner
       /**/
