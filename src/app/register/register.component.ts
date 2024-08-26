@@ -44,7 +44,6 @@ export class RegisterComponent {
 
       this._AuthService.register(registerForm.value).subscribe({
         next:(response)=>{
-          console.log(response);
           if (response.message ==="success"){
             // navigate Login
             this._Router.navigate(["/login"]);
