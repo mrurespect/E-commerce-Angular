@@ -28,7 +28,9 @@ export class RegisterComponent {
     phone: new FormControl(null,[Validators.required]),
   });
 
-  constructor(private _AuthService: AuthService, private _Router: Router) {}
+  constructor(private _AuthService: AuthService, private _Router: Router) {
+    if(localStorage.getItem("userToken") !== null)this._Router.navigate(["/home"]);
+  }
 
   handleRegister(registerForm: FormGroup){
     this.isLoading=true;

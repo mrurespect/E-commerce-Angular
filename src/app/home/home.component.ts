@@ -3,13 +3,15 @@ import {NgForOf} from "@angular/common";
 import {Product} from "../product";
 import {ProductService} from "../product.service";
 import {RouterLink} from "@angular/router";
+import {MainSliderComponent} from "../main-slider/main-slider.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     NgForOf,
-    RouterLink
+    RouterLink,
+    MainSliderComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

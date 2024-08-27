@@ -23,6 +23,7 @@ export class LoginComponent {
   })
 
   constructor(private _AuthService:AuthService,private _Router:Router) {
+    if(localStorage.getItem("userToken") !== null)this._Router.navigate(["/home"]);
   }
   handleLogin(loginForm:FormGroup){
     this.isLoading=true;
