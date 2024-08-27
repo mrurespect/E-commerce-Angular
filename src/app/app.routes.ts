@@ -8,6 +8,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {NotfoundComponent} from "./notfound/notfound.component";
 import {authGuard} from "./auth.guard";
+import {ProductDetailsComponent} from "./product-details/product-details.component";
 
 export const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:"full"},
@@ -15,6 +16,7 @@ export const routes: Routes = [
   {path:"about",component:AboutComponent,canActivate:[authGuard]},
   {path:"brands",component:BrandsComponent,canActivate:[authGuard]},
   {path:"cart",component:CartComponent,canActivate:[authGuard]},
+  {path:"productsdetails/:id",component:ProductDetailsComponent,canActivate:[authGuard]},
   {path:"categories",component:CategoriesComponent,canActivate:[authGuard]},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
