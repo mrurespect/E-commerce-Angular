@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../product.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../product";
 
 @Component({
@@ -14,12 +14,15 @@ import {Product} from "../product";
 export class ProductDetailsComponent implements OnInit{
   productId:any;
   productDetail:any;
-  constructor(private _ProductService:ProductService,private _ActivatedRoute:ActivatedRoute ) {
+  constructor(private _ProductService:ProductService,private _ActivatedRoute:ActivatedRoute ,private _Router:Router) {
   }
 
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe((params)=>{
       this.productId=params.get('id');
+      if (this.productId > 20 || this.productId.match("[A-Za-z]")){
+        this._Router.navigate(["/notfound"])
+      }
     })
 
     this._ProductService.getSpecificProduct(this.productId).subscribe({

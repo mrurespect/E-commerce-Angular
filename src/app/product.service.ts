@@ -15,4 +15,10 @@ export class ProductService {
   getSpecificProduct(id:number):Observable<any>{
      return this._HttpClient.get("https://fakestores.onrender.com/api/products/"+id);
   }
+  getCategories():Observable<any>{
+     return this._HttpClient.get("https://fakestores.onrender.com/api/categories");
+  }
+  getProductsByCategory(name:string):Observable<any>{
+    return this._HttpClient.get("https://fakestores.onrender.com/api/products/category/"+name);
+  }
 }

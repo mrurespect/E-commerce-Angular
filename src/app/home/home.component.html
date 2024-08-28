@@ -1,24 +1,3 @@
 <app-main-slider/>
-<div class="container">
-  <div class="row">
-    <div *ngFor="let product of products" class="col-md-2 col-6">
-      <div class="product px-3 py-4 text-center">
-        <a [routerLink]="['/productsdetails',product.id]">
-          <img class="mx-auto" [src]="product.imageURL" style="width: 100px;height: 100px;object-fit: contain" alt="">
-          <span class="d-block text-main fw-bold font-sm text-center">{{product.category}}</span>
-          <h3 class="h6 fw-bolder">{{product.title.split(" ").slice(0,2).join(" ")}}</h3>
-          <div class="d-flex justify-content-between align-items-baseline">
-            <p>{{product.price}}DH</p>
-            <span>
-            <i class="fas fa-star" style="color: gold"></i>
-              {{product.rating}}
-          </span>
-          </div>
-          <button class="btn bg-main text-white w-100 my-2">+ Add To Cart</button>
-        </a>
-
-      </div>
-
-    </div>
-  </div>
-</div>
+<app-categories [show]="false"/>
+<app-featured-products [products]="products"/>

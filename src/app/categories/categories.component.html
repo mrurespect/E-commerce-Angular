@@ -1,1 +1,36 @@
-<p>categories works!</p>
+<div class="container ">
+  <h3 class="h5 fw-bold py-2 mt-2">Shop Popular Categories </h3>
+  <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide>
+        <a [routerLink]="['/categories',categories[0]]">
+          <img src="./assets/images/categories/img_2.png" width="250" height="200" class="object-fit-cover"  >
+        </a>
+        <p class="fw-bold text-center py-2">{{categories[0]}}</p>
+      </ng-template>
+      <ng-template carouselSlide>
+        <a [routerLink]="['/categories',categories[1]]">
+          <img src="./assets/images/categories/img_1.png" width="250" height="200" class="object-fit-cover"  >
+        </a>
+        <p class="fw-bold text-center py-2">{{categories[1]}}</p>
+
+      </ng-template>
+      <ng-template carouselSlide>
+        <a [routerLink]="['/categories',categories[2]]">
+          <img src="./assets/images/categories/img.png"  width="250" height="200" class="object-fit-cover" >
+        </a>
+        <p class="fw-bold text-center py-2">{{categories[2]}}</p>
+
+      </ng-template>
+      <ng-template carouselSlide>
+        <a [routerLink]="['/categories',categories[3]]">
+          <img src="./assets/images/categories/women.png" width="250" height="200" class="object-fit-cover">
+        </a>
+        <p class="fw-bold text-center py-2">{{categories[3]}}</p>
+      </ng-template>
+  </owl-carousel-o>
+</div>
+<div *ngIf="show" class="container py-2">
+  <app-featured-products [products]="productsByCat" [name]="name"/>
+</div>
+
+
