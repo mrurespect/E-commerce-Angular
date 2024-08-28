@@ -1,26 +1,28 @@
-<div class="w-75 mx-auto py-4">
-  <h4>Login Now :</h4>
+<div class="w-75 mx-auto py-4 d-flex align-items-center justify-content-center  " style="height: 75vh">
+  <div class="w-100">
+    <h4>Login Now :</h4>
 
-  <div class="alert alert-danger" *ngIf="apiError">
-    {{apiError}}
-  </div>
-
-  <form (ngSubmit)="handleLogin(loginForm)" [formGroup]="loginForm">
-    <label for="email" >email:</label>
-    <input type="email" formControlName="email" class="form-control mb-2"  id="email">
-
-    <label for="password" >password:</label>
-    <input type="password" formControlName="password" class="form-control mb-2" id="password" >
-
-    <div class="alert alert-danger mb-2" *ngIf="loginForm.invalid && !loginForm.untouched">
-      <p class="m-0" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">Password is required</p>
-      <p class="m-0" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">Email is required</p>
+    <div class="alert alert-danger" *ngIf="apiError">
+      {{apiError}}
     </div>
-    <button [disabled]="loginForm.invalid" class="btn bg-main border-0 text-white d-block ms-auto" type="submit">
-      <i class="fas fa-spinner fa-spin" *ngIf="isLoading;else myTemplate"></i>
-      <ng-template #myTemplate>
-        <span>Login</span>
-      </ng-template>
-    </button>
-  </form>
+
+    <form (ngSubmit)="handleLogin(loginForm)" [formGroup]="loginForm">
+      <label for="email" >email:</label>
+      <input type="email" formControlName="email" class="form-control mb-2"  id="email">
+
+      <label for="password" >password:</label>
+      <input type="password" formControlName="password" class="form-control mb-2" id="password" >
+
+      <div class="alert alert-danger mb-2" *ngIf="loginForm.invalid && !loginForm.untouched">
+        <p class="m-0" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">Password is required</p>
+        <p class="m-0" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">Email is required</p>
+      </div>
+      <button [disabled]="loginForm.invalid" class="btn bg-main border-0 text-white d-block ms-auto" type="submit">
+        <i class="fas fa-spinner fa-spin" *ngIf="isLoading;else myTemplate"></i>
+        <ng-template #myTemplate>
+          <span>Login</span>
+        </ng-template>
+      </button>
+    </form>
+  </div>
 </div>
