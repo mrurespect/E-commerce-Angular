@@ -5,7 +5,7 @@
         <ng-container *ngFor="let product of products">
           <ng-template carouselSlide>
             <a [routerLink]="['/productsdetails',product.id]">
-              <img [src]="product.imageURL" height="400" class="w-75 product border-0 mx-auto object-fit-contain"  [alt]="product.description" [title]="product.title.split(' ').slice(0,2).join(' ')">
+              <img [src]="product.imageURL" height="400" class="w-75 product border-0 mx-auto object-fit-contain"  [alt]="product.description" [title]="product.title| seemore:3">
             </a>
           </ng-template>
         </ng-container>

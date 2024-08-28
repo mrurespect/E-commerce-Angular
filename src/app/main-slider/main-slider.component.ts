@@ -4,11 +4,12 @@ import {ProductService} from "../product.service";
 import {Product} from "../product";
 import {NgForOf, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
+import {SeemorePipe} from "../seemore.pipe";
 
 @Component({
   selector: 'app-main-slider',
   standalone: true,
-  imports: [CarouselModule, NgForOf, NgIf, RouterLink],
+  imports: [CarouselModule, NgForOf, NgIf, RouterLink, SeemorePipe],
   templateUrl: './main-slider.component.html',
   styleUrl: './main-slider.component.css'
 })
