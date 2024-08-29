@@ -5,14 +5,42 @@
     </div>
     <div class="col-md-8">
       <h2 class="h4 fw-bolder mb-2 text-md-start text-center">{{productDetail?.title}}</h2>
-      <p class="text-muted p-3 ">{{productDetail?.description}}</p>
-      <p>{{productDetail?.category}}</p>
-      <div class="d-flex justify-content-between align-items-baseline">
-        <p>{{productDetail?.price}}DH</p>
-        <span>
-            <i class="fas fa-star" style="color: gold"></i>
-          {{productDetail?.rating}}
+      <p class="text-muted p-3 ">
+        {{productDetail?.description|seemore:60:original}}
+        <span
+          (click)="seemore()"
+          *ngIf="productDetail?.description.split(' ').length > 60 && !original "
+          class="cursor-pointer text-primary">
+          See more
+        </span>
+      </p>
+
+      <ul class="list-unstyled">
+        <li class="mb-2">
+          <strong>Category: </strong>
+          <span>
+            <a class="link-primary" [routerLink]="['/categories', productDetail?.category]">
+              {{productDetail?.category}}
+            </a>
           </span>
+        </li>
+        <li class="mb-2">
+          <strong>Availability: </strong>
+          <span>{{productDetail?.availability}}</span>
+        </li>
+      </ul>
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <p class="m-0 p-0">{{productDetail?.price | currency}}</p>
+          <p class="m-0 p-0">{{productDetail?.price |dollarToDh| currency:'DH '}}</p>
+        </div>
+        <div>
+          <span *ngFor="let _ of numOfStars">
+            <i class="fas fa-star" style="color: gold"></i>
+          </span>
+          <span *ngIf="halfStar"><i class="fa-solid fa-star-half-stroke" style="color: gold"></i></span>
+          <span>  ({{productDetail.ratingCount}}+ Reviews)</span>
+        </div>
       </div>
       <button class="btn bg-main text-white w-100 my-2">+ Add To Cart</button>
     </div>

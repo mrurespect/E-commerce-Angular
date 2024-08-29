@@ -1,12 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../product.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Product} from "../product";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
+import {CurrencyPipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
+import {DollarToDhPipe} from "../dollar-to-dh.pipe";
+import {SeemorePipe} from "../seemore.pipe";
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [],
+  imports: [
+    CurrencyPipe,
+    JsonPipe,
+    NgForOf,
+    NgIf,
+    DollarToDhPipe,
+    RouterLink,
+    SeemorePipe
+  ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })
@@ -14,7 +24,14 @@ import {Product} from "../product";
 export class ProductDetailsComponent implements OnInit{
   productId:any;
   productDetail:any;
+  numOfStars: any[] = [];
+  halfStar =false;
+  original:boolean=false;
   constructor(private _ProductService:ProductService,private _ActivatedRoute:ActivatedRoute ,private _Router:Router) {
+  }
+
+  seemore(){
+    this.original=true;
   }
 
   ngOnInit(): void {
@@ -26,7 +43,12 @@ export class ProductDetailsComponent implements OnInit{
     })
 
     this._ProductService.getSpecificProduct(this.productId).subscribe({
-    next:(data)=>{this.productDetail=data}
+    next:(data)=>{
+      this.productDetail=data ;
+      let rating =this.productDetail.rating
+      this.halfStar= rating%1 !==0
+      this.numOfStars = Array( rating-rating %1);
+    }
     })
   }
 }

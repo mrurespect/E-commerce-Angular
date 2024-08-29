@@ -7,6 +7,7 @@ import {MainSliderComponent} from "../main-slider/main-slider.component";
 import {CategoriesComponent} from "../categories/categories.component";
 import {FormsModule} from "@angular/forms";
 import {FeaturedProductsComponent} from "../featured-products/featured-products.component";
+import {OfferComponent} from "../offer/offer.component";
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,7 @@ import {FeaturedProductsComponent} from "../featured-products/featured-products.
     CurrencyPipe,
     FormsModule,
     FeaturedProductsComponent,
+    OfferComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

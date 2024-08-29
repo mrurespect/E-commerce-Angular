@@ -29,6 +29,15 @@ export class CategoriesComponent implements OnInit {
     navText: ['<span><i class="fa-solid fa-chevron-left"></i></span>', '<span><i class="fa-solid fa-chevron-right"></i></span>'],
     responsive: {
       0: {
+        items: 1
+      },
+      400: {
+        items: 1
+      },
+      740: {
+        items: 3
+      },
+      940: {
         items: 3
       }
     },
