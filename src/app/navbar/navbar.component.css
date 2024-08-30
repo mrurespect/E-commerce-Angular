@@ -1,0 +1,27 @@
+/* Default styles for nav-link */
+.nav-link {
+  color: #343a40; /* Default text color */
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+/* Active link styles */
+.active-link {
+  background-color: #0aad0a; /* Main color for active link */
+  color: white; /* Text color for active link */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow to add depth */
+}
+
+/* Hover effect for links */
+.nav-link:hover {
+  background-color: #e9ecef; /* Light gray background on hover */
+  color: #495057; /* Darker text color on hover */
+  text-decoration: none; /* Remove underline on hover */
+}
+
+/* Ensure active link styles override hover effects */
+.active-link:hover {
+  background-color: #0aad0a; /* Keep the active color on hover */
+  color: white; /* Keep the text color consistent */
+}

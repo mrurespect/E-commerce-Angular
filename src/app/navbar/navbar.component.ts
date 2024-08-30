@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterLink} from "@angular/router";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 import {AuthService} from "../auth.service";
 import {NgIf} from "@angular/common";
 
@@ -8,7 +8,8 @@ import {NgIf} from "@angular/common";
   standalone: true,
   imports: [
     RouterLink,
-    NgIf
+    NgIf,
+    RouterLinkActive
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'

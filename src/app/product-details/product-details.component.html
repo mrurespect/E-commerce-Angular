@@ -20,7 +20,7 @@
           <strong>Category: </strong>
           <span>
             <a class="link-primary" [routerLink]="['/categories', productDetail?.category]">
-              {{productDetail?.category}}
+              {{productDetail?.category |titlecase}}
             </a>
           </span>
         </li>
@@ -42,7 +42,14 @@
           <span>  ({{productDetail.ratingCount}}+ Reviews)</span>
         </div>
       </div>
-      <button class="btn bg-main text-white w-100 my-2">+ Add To Cart</button>
+      <button class="btn custom-btn border-0 w-100" >
+        <div class="bg-btn text-white rounded-pill w-100 mx-auto py-3 d-flex justify-content-center align-items-center">
+          <span>Add To Cart</span>
+          <i class="fa-solid fa-cart-plus text-black ms-2"></i>
+        </div>
+      </button>
+
+
     </div>
   </div>
 </div>

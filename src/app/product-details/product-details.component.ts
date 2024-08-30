@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../product.service";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
-import {CurrencyPipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
+import {CurrencyPipe, JsonPipe, NgForOf, NgIf, TitleCasePipe} from "@angular/common";
 import {DollarToDhPipe} from "../dollar-to-dh.pipe";
 import {SeemorePipe} from "../seemore.pipe";
 
@@ -15,7 +15,8 @@ import {SeemorePipe} from "../seemore.pipe";
     NgIf,
     DollarToDhPipe,
     RouterLink,
-    SeemorePipe
+    SeemorePipe,
+    TitleCasePipe
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
@@ -51,4 +52,6 @@ export class ProductDetailsComponent implements OnInit{
     }
     })
   }
+
+  protected readonly console = console;
 }

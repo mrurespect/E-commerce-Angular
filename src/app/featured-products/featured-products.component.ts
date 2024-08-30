@@ -25,4 +25,5 @@ export class FeaturedProductsComponent {
   @Input() products:Product[]=[];
   searchTerm:string="";
   @Input() name ="";
+  protected readonly console = console;
 }

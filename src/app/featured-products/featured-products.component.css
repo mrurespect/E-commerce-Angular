@@ -1,0 +1,12 @@
+.custom-col {
+  flex: 0 0 20%; /* Each item takes up 20% of the row */
+  max-width: 20%; /* Ensures items do not exceed 20% */
+  padding: 0.5rem; /* Adds padding between items */
+}
+
+@media (max-width: 768px) {
+  .custom-col {
+    flex: 0 0 50%; /* On small screens, show 2 items per row */
+    max-width: 50%;
+  }
+}

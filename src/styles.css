@@ -60,3 +60,24 @@ a , a:hover{
 {
   background-color: var(--light-color) !important;
 }
+
+.custom-btn {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bg-btn{
+  background-color: var(--main-color)
+}
+.custom-btn:hover .bg-btn {
+  background-color: #5a5aff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.custom-btn:active .bg-btn {
+  transform: scale(0.95);
+  background-color: #4a4acc;
+}
+
+.custom-btn .bg-main {
+  transition: background-color 0.2s, transform 0.2s;
+}

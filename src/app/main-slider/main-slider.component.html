@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid offers mb-5">
   <div class="row py-4 gx-0">
-    <div class="col-md-7 " *ngIf="productImages.length>0; else myTemplate">
+    <div class="col-md-7 " style="background-color: white" *ngIf="productImages.length>0; else myTemplate">
       <owl-carousel-o [options]="customOptions">
         <ng-container *ngFor="let product of products">
           <ng-template carouselSlide>
@@ -11,16 +11,15 @@
         </ng-container>
       </owl-carousel-o>
     </div>
-
     <ng-template #myTemplate>
       <div class="col-md-7">
         <img src="./assets/images/blog-img-2.jpeg" class="w-100" height="400">
       </div>
     </ng-template>
 
-    <div class="col-md-5 d-none d-md-block">
-      <img src="assets/images/slider-image-2.jpeg" height="200" class="w-100 object-fit-cover" alt="">
-      <img src="assets/images/slider-image-3.jpeg" height="200" class="w-100 object-fit-cover" alt="">
+    <div class="col-md-5 ">
+      <img src="assets/images/offers/img_1.png" height="200" class="w-100 object-fit-cover" alt="">
+      <img src="assets/images/offers/lol.png" height="250" class="w-100 object-fit-cover" alt="">
     </div>
   </div>
 </div>

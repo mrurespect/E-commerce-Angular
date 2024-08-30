@@ -1,5 +1,12 @@
 <div class="container">
-  <input placeholder="search by name ..." class="form-control w-75 mx-auto my-4" type="text" [(ngModel)]="searchTerm" />
+  <div class="position-relative w-75 mx-auto">
+    <input
+      placeholder="search by name ..."
+      class="form-control  my-4"
+      type="text" [(ngModel)]="searchTerm" />
+    <i class="fa-solid fa-magnifying-glass position-absolute top-50 end-0 translate-middle px-2 cursor-pointer"></i>
+  </div>
+
   <div class="row">
       <div *ngIf="name" class="col-md-6 d-flex justify-content-center align-items-center flex-column text-center">
         <div class="w-25" style="height: 1px; background-color: #28A745; align-self: flex-start"></div>
@@ -11,7 +18,7 @@
         </p>
         <div class="w-100" style="height: 1px; background-color: #28A745;"></div>
       </div>
-    <div *ngFor="let product of products |search:searchTerm" class="col-md-2 col-6">
+    <div *ngFor="let product of products |search:searchTerm" class="custom-col col-md-2 col-6">
       <div class="product px-3 py-4 text-center">
         <a [routerLink]="['/productsdetails',product.id]">
           <img class="mx-auto" [src]="product.imageURL" style="width: 100px;height: 100px;object-fit: contain" alt="">
@@ -24,8 +31,13 @@
               {{product.rating}}
           </span>
           </div>
-          <button class="btn bg-main text-white w-100 my-2">+ Add To Cart</button>
         </a>
+        <button class="btn custom-btn border-0 w-100" >
+          <div class="bg-btn text-white rounded-pill w-100 mx-auto py-3 d-flex justify-content-center align-items-center">
+            <span>Add To Cart</span>
+            <i class="fa-solid fa-cart-plus text-black ms-2"></i>
+          </div>
+        </button>
       </div>
     </div>
   </div>
