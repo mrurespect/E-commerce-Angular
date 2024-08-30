@@ -4,6 +4,7 @@ import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {CurrencyPipe, JsonPipe, NgForOf, NgIf, TitleCasePipe} from "@angular/common";
 import {DollarToDhPipe} from "../dollar-to-dh.pipe";
 import {SeemorePipe} from "../seemore.pipe";
+import {CartService} from "../cart.service";
 
 @Component({
   selector: 'app-product-details',
@@ -28,7 +29,11 @@ export class ProductDetailsComponent implements OnInit{
   numOfStars: any[] = [];
   halfStar =false;
   original:boolean=false;
-  constructor(private _ProductService:ProductService,private _ActivatedRoute:ActivatedRoute ,private _Router:Router) {
+
+  constructor(private _ProductService:ProductService,private _ActivatedRoute:ActivatedRoute ,private _Router:Router,private _CartService:CartService) {
+  }
+  addToCart(item:any){
+    this._CartService.addToCart(item)
   }
 
   seemore(){

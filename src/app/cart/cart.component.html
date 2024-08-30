@@ -1,1 +1,14 @@
-<p>cart works!</p>
+<!-- cart.component.html -->
+<div *ngIf="isVisible" @slideInOut
+     class="w-100 position-fixed start-0 top-0 bottom-0 vh-100"
+     style="z-index: 999;background-color: rgba(0,0,0,0.5)">
+  <div class="cart-container ms-auto">
+    <div class="d-flex justify-content-between align-items-center mx-5 border-bottom border-black border-opacity-25 py-3">
+      <h3 class="fw-bold h5">Shop Cart</h3>
+      <i class="fa-solid fa-x text-muted cursor-pointer" (click)="toggleVisibility()"></i>
+    </div>
+    <div class="scrollable-content">
+
+    </div>
+  </div>
+</div>

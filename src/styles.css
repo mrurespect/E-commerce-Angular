@@ -81,3 +81,7 @@ a , a:hover{
 .custom-btn .bg-main {
   transition: background-color 0.2s, transform 0.2s;
 }
+
+.bg-muted {
+  color: #6c757d;
+}

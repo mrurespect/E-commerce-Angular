@@ -5,6 +5,8 @@ import {SeemorePipe} from "../seemore.pipe";
 import {Product} from "../product";
 import {RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {buildApplication} from "@angular-devkit/build-angular";
+import {CartService} from "../cart.service";
 
 @Component({
   selector: 'app-featured-products',
@@ -25,5 +27,8 @@ export class FeaturedProductsComponent {
   @Input() products:Product[]=[];
   searchTerm:string="";
   @Input() name ="";
-  protected readonly console = console;
+  constructor(private _CartService:CartService) {  }
+  addToCart(item:any){
+    this._CartService.addToCart(item)
+  }
 }

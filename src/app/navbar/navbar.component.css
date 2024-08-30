@@ -4,6 +4,17 @@
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  font-size: 14px; /* Adjust text size */
+}
+
+/* Icon styles within nav-link */
+.nav-link i {
+  font-size: 20px; /* Adjust icon size */
+}
+
+/* Styles for each nav-item */
+.nav-item {
+  margin-right: 15px; /* Space between nav items */
 }
 
 /* Active link styles */
@@ -24,4 +35,11 @@
 .active-link:hover {
   background-color: #0aad0a; /* Keep the active color on hover */
   color: white; /* Keep the text color consistent */
+}
+.navbar-title {
+  color: #343a40; /* Default text color */
+  font-size: 1.5rem; /* Adjust the font size if needed */
+  font-weight: 900; /* Ensures the text is bold */
+  margin-left: 0.5rem; /* Adjusts space to the left */
+  margin-right: 1rem; /* Adjusts space to the right */
 }

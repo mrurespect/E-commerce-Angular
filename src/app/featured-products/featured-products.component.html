@@ -2,9 +2,9 @@
   <div class="position-relative w-75 mx-auto">
     <input
       placeholder="search by name ..."
-      class="form-control  my-4"
+      class="form-control   my-4"
       type="text" [(ngModel)]="searchTerm" />
-    <i class="fa-solid fa-magnifying-glass position-absolute top-50 end-0 translate-middle px-2 cursor-pointer"></i>
+    <i class="fa-solid text-main fa-magnifying-glass position-absolute top-50 end-0 translate-middle px-2 cursor-pointer"></i>
   </div>
 
   <div class="row">
@@ -32,7 +32,7 @@
           </span>
           </div>
         </a>
-        <button class="btn custom-btn border-0 w-100" >
+        <button class="btn custom-btn border-0 w-100" (click)="addToCart(product)">
           <div class="bg-btn text-white rounded-pill w-100 mx-auto py-3 d-flex justify-content-center align-items-center">
             <span>Add To Cart</span>
             <i class="fa-solid fa-cart-plus text-black ms-2"></i>

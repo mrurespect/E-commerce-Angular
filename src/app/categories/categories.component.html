@@ -5,27 +5,27 @@
         <a [routerLink]="['/categories',categories[0]]">
           <img src="./assets/images/categories/img_e.png" width="250" height="200" class="object-fit-fill"  >
         </a>
-        <p class="fw-bold text-center py-2">{{categories[0]}}</p>
+        <p class="fw-bold text-center py-2">{{categories[0]|titlecase}}</p>
       </ng-template>
       <ng-template carouselSlide>
         <a [routerLink]="['/categories',categories[1]]">
           <img src="./assets/images/categories/img_j.png" width="250" height="200" class="object-fit-fill"  >
         </a>
-        <p class="fw-bold text-center py-2">{{categories[1]}}</p>
+        <p class="fw-bold text-center py-2">{{categories[1]|titlecase}}</p>
 
       </ng-template>
       <ng-template carouselSlide>
         <a [routerLink]="['/categories',categories[2]]">
           <img src="./assets/images/categories/img-m.png"  width="250" height="200" class="object-fit-fill" >
         </a>
-        <p class="fw-bold text-center py-2">{{categories[2]}}</p>
+        <p class="fw-bold text-center py-2">{{categories[2]|titlecase}}</p>
 
       </ng-template>
       <ng-template carouselSlide>
         <a [routerLink]="['/categories',categories[3]]">
           <img src="./assets/images/categories/img_w.png" width="250" height="200" class="object-fit-cover">
         </a>
-        <p class="fw-bold text-center py-2">{{categories[3]}}</p>
+        <p class="fw-bold text-center py-2">{{categories[3]|titlecase}}</p>
       </ng-template>
   </owl-carousel-o>
 </div>
@@ -38,7 +38,7 @@
           <img src="./assets/images/categories/women.png" width="105" class="top-50 start-50 translate  position-absolute" alt="">
         </a>
       </div>
-      <p class="fw-bold text-center py-2">{{categories[3]}}</p>
+      <p class="fw-bold text-center py-2">{{categories[3]|titlecase}}</p>
     </div>
     <div class="col-md-3 col-6">
       <div class="bg-main-light mx-auto rounded-pill position-relative" style="width:160px ;height: 160px">
@@ -46,7 +46,7 @@
           <img src="./assets/images/categories/men.png" width="105" class="top-50 start-50 translate  position-absolute" alt="">
         </a>
       </div>
-      <p class="fw-bold text-center py-2">{{categories[2]}}</p>
+      <p class="fw-bold text-center py-2">{{categories[2]|titlecase}}</p>
     </div>
     <div class="col-md-3 col-6">
       <div class="bg-main-light mx-auto rounded-pill position-relative" style="width:160px ;height: 160px">
@@ -54,7 +54,7 @@
           <img src="./assets/images/categories/jewelry.png" width="125" class="top-50 start-50 translate  position-absolute" alt="">
         </a>
       </div>
-      <p class="fw-bold text-center py-2">{{categories[1]}}</p>
+      <p class="fw-bold text-center py-2">{{categories[1]|titlecase}}</p>
     </div>
     <div class="col-md-3 col-6">
       <div class="bg-main-light mx-auto rounded-pill position-relative" style="width:160px ;height: 160px">
@@ -62,7 +62,7 @@
           <img src="./assets/images/categories/electronics.png" width="100" class="top-50 start-50 translate  position-absolute" alt="">
         </a>
       </div>
-      <p class="fw-bold text-center py-2">{{categories[0]}}</p>
+      <p class="fw-bold text-center py-2">{{categories[0]|titlecase}}</p>
     </div>
   </div>
 

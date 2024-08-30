@@ -2,14 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from "../product.service";
 import { CarouselModule, OwlOptions } from "ngx-owl-carousel-o";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
-import {NgForOf, NgIf} from "@angular/common";
+import {NgForOf, NgIf, TitleCasePipe} from "@angular/common";
 import {Product} from "../product";
 import {FeaturedProductsComponent} from "../featured-products/featured-products.component";
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [CarouselModule, NgIf, RouterLink, NgForOf, FeaturedProductsComponent],
+  imports: [CarouselModule, NgIf, RouterLink, NgForOf, FeaturedProductsComponent, TitleCasePipe],
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })

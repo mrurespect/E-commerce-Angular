@@ -1,0 +1,18 @@
+/* Default styles for larger screens */
+.cart-container {
+  width: 40%;
+  height: 100vh;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.scrollable-content {
+  height: 100%;
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 0 1rem; /* Optional, for padding */
+}
+@media (max-width: 768px) {
+  .cart-container {
+    width: 100%;
+  }
+}
