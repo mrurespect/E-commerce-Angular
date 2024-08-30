@@ -10,9 +10,51 @@
   height: 100%;
   overflow-y: auto; /* Enable vertical scrolling */
   padding: 0 1rem; /* Optional, for padding */
+  padding-bottom: 3rem;
 }
 @media (max-width: 768px) {
   .cart-container {
     width: 100%;
   }
+}
+
+.quantity-input {
+  display: inline-flex;
+}
+
+.quantity-decrease,
+.quantity-increase {
+  padding: 15px;
+  cursor: pointer;
+  user-select: none;
+  background-color: white;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quantity-decrease:hover,
+.quantity-increase:hover {
+  background-color: #f0f0f0;
+}
+
+.quantity {
+  width: 30px;
+  height: 25px;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  overflow: hidden;
+}
+.quantity input{
+  border: unset;
+  text-decoration: unset;
+  background-color: transparent;
+  transform: translateX(-7px);
+}
+td {
+  vertical-align: middle;
 }

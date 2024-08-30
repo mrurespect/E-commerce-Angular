@@ -15,7 +15,7 @@ export const routes: Routes = [
   {path:"about",component:AboutComponent,canActivate:[authGuard]},
   {path:"cart",component:CartComponent,canActivate:[authGuard]},
   {path:"brands",component:BrandsComponent,canActivate:[authGuard]},
-  {path:"productsdetails/:id",component:ProductDetailsComponent,canActivate:[authGuard]},
+  {path:"productsdetails/:id",component:ProductDetailsComponent,canActivate:[authGuard],runGuardsAndResolvers: 'always' },
   {path:"categories/:name",component:CategoriesComponent,canActivate:[authGuard]},
   { path: 'categories', redirectTo: 'categories/electronics', pathMatch: 'full'},
   {path:"login",component:LoginComponent},

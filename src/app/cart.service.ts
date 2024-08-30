@@ -8,8 +8,6 @@ import {Product} from "./product";
 })
 export class CartService {
   private storageKey='cart';
-  isVisible=false;
-
   constructor() {
 
   }
@@ -24,7 +22,9 @@ export class CartService {
     const existingItem = items.find(cartItem => cartItem.id === item.id);
 
     if (existingItem) {
+      if (existingItem.quantity===10)return
       existingItem.quantity += 1; // Increase quantity if item already exists
+
     } else {
       item.quantity = 1; // Initialize quantity if it's a new item
       items.push(item);  // Add new item to the cart
@@ -41,14 +41,28 @@ export class CartService {
   clearCart(){
     localStorage.removeItem(this.storageKey);
   }
-  updateCartProductQuantity(productId: number): void {
+  addProductQuantity(productId: number): void {
     const items: any[] = this.getCartItems();
     const updatedItems = items.map(item => {
       if (item.id === productId) {
         item.quantity = item.quantity ? item.quantity + 1 : 1;
       }
-      return item;
+      return item;  // Ensure the modified item is returned
     });
+
+    localStorage.setItem(this.storageKey, JSON.stringify(updatedItems));
+  }
+
+  decreaseProductQuantity(productId: number): void {
+    const items: any[] = this.getCartItems();
+    const updatedItems = items.map(item => {
+      if (item.id === productId) {
+        item.quantity = item.quantity ? item.quantity - 1 : 1;
+        if (item.quantity < 1) item.quantity = 1;  // Ensure quantity doesn't go below 1
+      }
+      return item;  // Ensure the modified item is returned
+    });
+
     localStorage.setItem(this.storageKey, JSON.stringify(updatedItems));
   }
   getTotalCartPrice(): number {
@@ -59,6 +73,9 @@ export class CartService {
     });
     return total;
   }
+
+
+
   private cartVisibility = new BehaviorSubject<boolean>(false);
 
   getCartVisibility() {

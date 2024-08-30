@@ -1,4 +1,5 @@
-<!-- cart.component.html -->
+
+
 <div *ngIf="isVisible" @slideInOut
      class="w-100 position-fixed start-0 top-0 bottom-0 vh-100"
      style="z-index: 999;background-color: rgba(0,0,0,0.5)">
@@ -7,8 +8,49 @@
       <h3 class="fw-bold h5">Shop Cart</h3>
       <i class="fa-solid fa-x text-muted cursor-pointer" (click)="toggleVisibility()"></i>
     </div>
+    <div *ngIf="cartItems.length === 0" class="text-center py-2">
+      <p class="text-muted">Your cart is currently empty.</p>
+    </div>
     <div class="scrollable-content">
-
+      <table class="w-100 table">
+        <tbody>
+          <tr *ngFor="let item of cartItems" class="py-2 px-1 mb-1">
+            <td >
+              <img [src]="item.imageURL" width="50px" height="50px" class="object-fit-contain" alt="">
+            </td>
+            <td>
+              <div class="font-sm mx-3">
+                <p (click)="onNavigate(item.id)" class="m-0 cursor-pointer">{{item.title | seemore: 3}}</p>
+                <p class="text-muted m-0">{{item.availability}}</p>
+                <p class="text-muted cursor-pointer" >
+                  <i class="fa-solid fa-trash-can pe-2 text-main"></i>remove
+                </p>
+              </div>
+            </td>
+            <td>
+                <div class="quantity-input">
+                  <div (click)="decrease(item)" class="quantity-increase border border-opacity-25 rounded-start">
+                    <i class="fa-solid fa-minus text-muted"></i>
+                  </div>
+                  <div class="quantity border border-opacity-25">
+                    <input type="text"  disabled  [value]="item.quantity" min="1" max="10">
+                  </div>
+                  <div (click)="increase(item)" class="quantity-increase border border-opacity-25 rounded-end">
+                    <i class="fa-solid fa-plus text-muted"></i>
+                  </div>
+                </div>
+            </td>
+            <td>
+              <div>
+                <p class="fw-bold m-0">{{item.price|dollarToDh|currency:"Dh"}}</p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <button class="btn bg-main text-white">continue shoping</button>
+      </div>
     </div>
   </div>
 </div>
