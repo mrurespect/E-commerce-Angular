@@ -9,6 +9,12 @@
   z-index: 9999;
   transition: opacity 0.3s ease-in-out;
 }
+@media (max-width: 768px) {
+  .mytoast{
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
 
 .mytoast.error {
   background-color: #f44336; /* red */

@@ -1,17 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {BehaviorSubject, Observable} from "rxjs";
-import {Product} from "./product";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   private storageKey='cart';
-  constructor() {
-
-  }
-
   getCartItems(){
     const items =localStorage.getItem(this.storageKey);
     return items ?JSON.parse(items) : []
@@ -60,7 +54,7 @@ export class CartService {
         item.quantity = item.quantity ? item.quantity - 1 : 1;
         if (item.quantity < 1) item.quantity = 1;  // Ensure quantity doesn't go below 1
       }
-      return item;  // Ensure the modified item is returned
+      return item;
     });
 
     localStorage.setItem(this.storageKey, JSON.stringify(updatedItems));
@@ -73,8 +67,6 @@ export class CartService {
     });
     return total;
   }
-
-
 
   private cartVisibility = new BehaviorSubject<boolean>(false);
 

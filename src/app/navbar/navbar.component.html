@@ -43,11 +43,15 @@
           <a class="nav-link" routerLink="settings" >Settings</a>
         </li>
         <li *ngIf="isLogin" class="nav-item ">
-          <a #cart class="nav-link cursor-pointer" (click)="toggleCart()">
+          <a #cart class="nav-link cursor-pointer position-relative " (click)="toggleCart()">
             <i class="fas fa-shopping-cart me-1"></i>
-            <span>Cart</span>
+            <div class="bg-main text-white rounded text-center d-flex justify-content-center align-items-center position-absolute top-0 end-0"
+                 style="width: 15px ;height: 15px ;font-size: 10px">
+              <span>{{numberOfItems}}</span>
+            </div>
           </a>
         </li>
+
       </ul>
     </div>
   </div>
