@@ -84,5 +84,10 @@ export class CartService {
 
   toggleCartVisibility() {
     this.cartVisibility.next(!this.cartVisibility.value);
+    if (this.cartVisibility.value) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
   }
 }

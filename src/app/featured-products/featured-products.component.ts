@@ -30,5 +30,6 @@ export class FeaturedProductsComponent {
   constructor(private _CartService:CartService) {  }
   addToCart(item:any){
     this._CartService.addToCart(item)
+    this._CartService.toggleCartVisibility();
   }
 }

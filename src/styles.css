@@ -85,3 +85,7 @@ a , a:hover{
 .bg-muted {
   color: #6c757d;
 }
+
+.no-scroll {
+  overflow: hidden;
+}

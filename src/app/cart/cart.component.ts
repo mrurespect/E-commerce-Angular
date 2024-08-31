@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CartService} from "../cart.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {CurrencyPipe, NgForOf, NgIf} from "@angular/common";
-import {BehaviorSubject} from "rxjs";
 import {SeemorePipe} from "../seemore.pipe";
 import {DollarToDhPipe} from "../dollar-to-dh.pipe";
 import {Router, RouterLink} from "@angular/router";
@@ -65,12 +64,19 @@ export class CartComponent implements OnInit{
     }
   }
 
+  removeItem(item: any) {
+    this._CartService.removeFromCart(item.id);
+    this.refreshCartItems();
+  }
+  refreshCartItems() {
+    this.cartItems = this._CartService.getCartItems();
+  }
+
+
   onNavigate(productId: number) {
-    this._Router.navigate(['/home']).then(() => {
+    this._Router.navigate(['/home']).then(() => { // just to force navigation if we are already in productsdetails
       this.toggleVisibility();
       this._Router.navigate(['/productsdetails', productId]);
     });
   }
-
-
 }
