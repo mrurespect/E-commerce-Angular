@@ -1,0 +1,19 @@
+.mytoast {
+  position: fixed;
+  top: 10px;
+  right: 42%;
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  border-radius: 5px;
+  z-index: 9999;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.mytoast.error {
+  background-color: #f44336; /* red */
+}
+
+.mytoast.success {
+  background-color: #4caf50; /* green */
+}

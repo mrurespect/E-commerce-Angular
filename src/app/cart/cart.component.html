@@ -1,9 +1,8 @@
-
-
 <div *ngIf="isVisible" @slideInOut
-     class="w-100 position-fixed start-0 top-0 bottom-0 vh-100"
+     class="w-100 position-fixed start-0 top-0 bottom-0 vh-100 position-relative"
      style="z-index: 999;background-color: rgba(0,0,0,0.5)"
      (click)="toggleVisibility()">
+  <app-toast></app-toast>
   <div (click)="$event.stopPropagation()" class="cart-container ms-auto" >
     <div class="d-flex justify-content-between align-items-center mx-5 border-bottom border-black border-opacity-25 py-3">
       <h3 class="fw-bold h5">Shop Cart</h3>
@@ -24,7 +23,7 @@
                 <p (click)="onNavigate(item.id)" class="m-0 cursor-pointer">{{item.title | seemore: 3}}</p>
                 <p class="text-muted m-0">{{item.availability}}</p>
                 <p (click)="removeItem(item)" class="text-muted cursor-pointer" >
-                  <i class="fa-solid fa-trash-can pe-2 text-main"></i>remove
+                  <i class="fa-solid fa-trash-can pe-2 text-danger"></i>remove
                 </p>
               </div>
             </td>

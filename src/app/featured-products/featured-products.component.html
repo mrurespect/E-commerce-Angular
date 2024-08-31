@@ -1,5 +1,7 @@
 <div class="container">
+  <app-toast #toast></app-toast>
   <div class="position-relative w-75 mx-auto">
+
     <input
       placeholder="search by name ..."
       class="form-control   my-4"
@@ -30,6 +32,7 @@
             <i class="fas fa-star" style="color: gold"></i>
               {{product.rating}}
           </span>
+
           </div>
         </a>
         <button class="btn custom-btn border-0 w-100" (click)="addToCart(product)">

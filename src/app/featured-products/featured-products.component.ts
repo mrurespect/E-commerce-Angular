@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import {CurrencyPipe, NgForOf, NgIf} from "@angular/common";
 import {SearchPipe} from "../search.pipe";
 import {SeemorePipe} from "../seemore.pipe";
@@ -7,6 +7,7 @@ import {RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {buildApplication} from "@angular-devkit/build-angular";
 import {CartService} from "../cart.service";
+import {ToastComponent} from "../toast/toast.component";
 
 @Component({
   selector: 'app-featured-products',
@@ -18,7 +19,8 @@ import {CartService} from "../cart.service";
     SeemorePipe,
     RouterLink,
     FormsModule,
-    NgIf
+    NgIf,
+    ToastComponent
   ],
   templateUrl: './featured-products.component.html',
   styleUrl: './featured-products.component.css'
@@ -28,8 +30,12 @@ export class FeaturedProductsComponent {
   searchTerm:string="";
   @Input() name ="";
   constructor(private _CartService:CartService) {  }
-  addToCart(item:any){
+
+  @ViewChild(ToastComponent) toast!: ToastComponent;
+  addToCart(item:any) {
     this._CartService.addToCart(item)
+    console.log(321)
+    this.toast.showToast('item successfully added to your cart!', 3000); // Show the toast for 3 seconds
     this._CartService.toggleCartVisibility();
   }
 }

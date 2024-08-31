@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {CartService} from "../cart.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {CurrencyPipe, NgForOf, NgIf} from "@angular/common";
 import {SeemorePipe} from "../seemore.pipe";
 import {DollarToDhPipe} from "../dollar-to-dh.pipe";
 import {Router, RouterLink} from "@angular/router";
+import {ToastComponent} from "../toast/toast.component";
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +16,8 @@ import {Router, RouterLink} from "@angular/router";
     SeemorePipe,
     DollarToDhPipe,
     CurrencyPipe,
-    RouterLink
+    RouterLink,
+    ToastComponent
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
@@ -63,10 +65,11 @@ export class CartComponent implements OnInit{
       this._CartService.decreaseProductQuantity(item.id);
     }
   }
-
+  @ViewChild(ToastComponent) toast! :ToastComponent;
   removeItem(item: any) {
     this._CartService.removeFromCart(item.id);
     this.refreshCartItems();
+    this.toast.showToast('Item successfully deleted!', 1500,"error");
   }
   refreshCartItems() {
     this.cartItems = this._CartService.getCartItems();
