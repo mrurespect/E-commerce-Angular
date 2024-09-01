@@ -9,13 +9,13 @@ import {Router} from "@angular/router";
   providedIn: 'root'
 })
 export class AuthService {
-  userData=new BehaviorSubject(null);
+  userData=new BehaviorSubject("");
 
   decodeUserData(){
     let encodedToken =JSON.stringify(localStorage.getItem("userToken"));
-    let decodedToken:any =jwtDecode(encodedToken);
-    this.userData.next(decodedToken);
-    console.log(decodedToken)
+   // let decodedToken:any =jwtDecode(encodedToken);
+    this.userData.next("some");
+    //console.log(decodedToken)
   }
   constructor(private _HttpClient:HttpClient,private _Router:Router) {
     if (localStorage.getItem("userToken")!==null){
@@ -34,7 +34,7 @@ export class AuthService {
   }
   logout(){
     localStorage.removeItem("userToken");
-    this.userData.next(null);
+    this.userData.next("");
     this._Router.navigate(['/login']);
   }
 }

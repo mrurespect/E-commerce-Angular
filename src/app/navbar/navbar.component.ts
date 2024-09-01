@@ -30,7 +30,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private _WishlistService: WishlistService
   ) {
     this._AuthService.userData.subscribe({
-      next: () => this.isLogin = this._AuthService.userData.getValue() !== null
+      //next: () => this.isLogin = this._AuthService.userData.getValue() !== null
+      next: () => this.isLogin = this._AuthService.userData.getValue() !== ""
     });
   }
 
