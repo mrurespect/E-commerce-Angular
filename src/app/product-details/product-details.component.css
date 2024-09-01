@@ -7,3 +7,12 @@
   color: #0056b3; /* Darker shade on hover */
   text-decoration: underline;
 }
+
+.product-img{
+  width: 75%;
+}
+@media (max-width: 768px) {
+  .product-img{
+    width: 50%;
+  }
+}

@@ -1,7 +1,6 @@
 <div class="container">
   <app-toast #toast></app-toast>
   <div class="position-relative w-75 mx-auto">
-
     <input
       placeholder="search by name ..."
       class="form-control   my-4"
@@ -21,7 +20,19 @@
         <div class="w-100" style="height: 1px; background-color: #28A745;"></div>
       </div>
     <div *ngFor="let product of products |search:searchTerm" class="custom-col col-md-2 col-6">
-      <div class="product px-3 py-4 text-center">
+      <div class="product px-3 py-4 text-center position-relative">
+        <div class="wishlist">
+          <div [routerLink]="['/productsdetails',product.id]" class="p-2 m-1 rounded d-flex justify-content-center align-items-center">
+            <i class="fa-regular fa-eye fs-6"></i>
+          </div>
+          <div (click)="addToWishList(product)" class="p-2 m-1 rounded d-flex justify-content-center align-items-center ">
+            <i class="fa-regular fa-heart fs-6"></i>
+          </div>
+          <div (click)="addToCart(product)" class="p-2 m-1 rounded d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-cart-plus fs-6 "></i>
+          </div>
+
+        </div>
         <a [routerLink]="['/productsdetails',product.id]">
           <img class="mx-auto" [src]="product.imageURL" style="width: 100px;height: 100px;object-fit: contain" alt="">
           <span class="d-block text-main fw-bold font-sm text-center">{{product.category}}</span>
@@ -32,7 +43,6 @@
             <i class="fas fa-star" style="color: gold"></i>
               {{product.rating}}
           </span>
-
           </div>
         </a>
         <button class="btn custom-btn border-0 w-100" (click)="addToCart(product)">

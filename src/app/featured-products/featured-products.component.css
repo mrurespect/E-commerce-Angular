@@ -10,3 +10,33 @@
     max-width: 50%;
   }
 }
+
+.wishlist{
+  position: absolute;
+  top: 8%;
+  right: 5px;
+  z-index: 99;
+
+  transition: transform 1s , opacity 1s;
+  transform: translateX(100%);
+  opacity: 0;
+}
+.wishlist div{
+  background-color: #f0f3f2;
+  cursor: pointer;
+}
+.wishlist div:hover{
+  background-color: #0aad0a;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.wishlist div:active{
+  transform: scale(0.95);
+}
+
+.product:hover .wishlist
+{
+  opacity: 1;
+  transform: translateX(0%);
+}

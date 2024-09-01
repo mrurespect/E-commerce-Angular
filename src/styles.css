@@ -42,7 +42,6 @@ a , a:hover{
 {
   opacity: 1;
   transform: translateY(0%);
-
 }
 .font-sm
 {
@@ -88,4 +87,7 @@ a , a:hover{
 
 .no-scroll {
   overflow: hidden;
+}
+td {
+  vertical-align: middle;
 }

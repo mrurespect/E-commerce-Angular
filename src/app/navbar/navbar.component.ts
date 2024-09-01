@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {RouterLink, RouterLinkActive} from "@angular/router";
-import {AuthService} from "../auth.service";
-import {NgIf} from "@angular/common";
-import {CartService} from "../cart.service";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { NgIf } from '@angular/common';
+import { CartService } from '../cart.service';
+import { WishlistService } from '../wishlist.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -13,27 +15,52 @@ import {CartService} from "../cart.service";
     RouterLinkActive
   ],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit{
-  isLogin:boolean=false;
-  numberOfItems:number=0;
-  wishlistCount:number=0;
+export class NavbarComponent implements OnInit, OnDestroy {
+  isLogin: boolean = false;
+  numberOfItems: number = 0;
+  wishlistCount: number = 0;
+  private cartSubscription!: Subscription;
+  private wishlistSubscription!: Subscription;
 
-  logout(){
-    this._AuthService.logout();
-  }
-  constructor(private _AuthService:AuthService,private _CartService:CartService) {
-    _AuthService.userData.subscribe({
-      next:()=> this.isLogin=_AuthService.userData.getValue() !== null
-    })
-  }
-  ngOnInit(): void {
-    this._CartService.getCartVisibility().subscribe( ()=>{
-      this.numberOfItems=this._CartService.getCartItems().length ; // update the count of items each time the visibility changes => toggle happend => cart updated (add or delete)
+  constructor(
+    private _AuthService: AuthService,
+    private _CartService: CartService,
+    private _WishlistService: WishlistService
+  ) {
+    this._AuthService.userData.subscribe({
+      next: () => this.isLogin = this._AuthService.userData.getValue() !== null
     });
   }
-  toggleCart() {
+
+  ngOnInit(): void {
+    // Subscribe to cart visibility changes
+    this.cartSubscription = this._CartService.getCartVisibility().subscribe(() => {
+      this.numberOfItems = this._CartService.getCartItems().length;
+    });
+
+    // Subscribe to wishlist changes
+    this.wishlistSubscription = this._WishlistService.wishList$.subscribe(items => {
+      this.wishlistCount = items.length;
+    });
+  }
+
+  ngOnDestroy(): void {
+    // Unsubscribe from all subscriptions to avoid memory leaks
+    if (this.cartSubscription) {
+      this.cartSubscription.unsubscribe();
+    }
+    if (this.wishlistSubscription) {
+      this.wishlistSubscription.unsubscribe();
+    }
+  }
+
+  logout(): void {
+    this._AuthService.logout();
+  }
+
+  toggleCart(): void {
     this._CartService.toggleCartVisibility();
   }
 }

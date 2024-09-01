@@ -8,12 +8,13 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {authGuard} from "./auth.guard";
 import {ProductDetailsComponent} from "./product-details/product-details.component";
+import {WishlistComponent} from "./wishlist/wishlist.component";
 
 export const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:"full"},
   {path:"home",component:HomeComponent,canActivate:[authGuard]}, // we give it an array of guards to guard the endpoint
   {path:"about",component:AboutComponent,canActivate:[authGuard]},
-  {path:"cart",component:CartComponent,canActivate:[authGuard]},
+  {path:"wishlist",component:WishlistComponent,canActivate:[authGuard]},
   {path:"brands",component:BrandsComponent,canActivate:[authGuard]},
   {path:"productsdetails/:id",component:ProductDetailsComponent,canActivate:[authGuard],runGuardsAndResolvers: 'always' },
   {path:"categories/:name",component:CategoriesComponent,canActivate:[authGuard]},
