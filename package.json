@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --configuration=production --base-href=/ecommerce",
+    "build:prod": "ng build --configuration=production --base-href=/E-commerce-Angular",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
