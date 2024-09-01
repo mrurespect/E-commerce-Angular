@@ -7,8 +7,8 @@
     "start": "ng serve",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build": "ng build --output-path=dist/browser --base-href /E-commerce-Angular/",
-    "deploy": "gh-pages -d dist/browser/"
+    "build": "ng build",
+    "deploy": "gh-pages -d browser/"
   },
   "private": true,
   "dependencies": {
