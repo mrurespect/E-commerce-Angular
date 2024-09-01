@@ -1,9 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <h3 class="navbar-title fs-4 ms-2 me-4">
+    <h3 routerLink="/" class="navbar-title fs-4 ms-2 me-4 cursor-pointer">
       <span class="text-main">S</span>hop with Me
     </h3>
-
     <ul class="navbar-nav d-lg-none d-flex flex-row ms-lg-0 ms-auto">
       <li *ngIf="isLogin" class="nav-item">
         <a #cart class="nav-link cursor-pointer position-relative" routerLink="wishlist">
@@ -24,7 +23,6 @@
         </a>
       </li>
     </ul>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

@@ -42,14 +42,19 @@
             </td>
             <td>
               <div>
-                <p class="fw-bold m-0">{{item.price|dollarToDh|currency:"Dh"}}</p>
+                <p class="fw-bold m-0">{{ (item.price) * (item.quantity) | currency }}</p>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
+
+      <div class="my-2 d-flex justify-content-between align-items-center mx-5 border-top border-black border-opacity-25 py-3">
+        <h5 class="fw-bold m-0">Total Price:</h5>
+        <p class="fw-bold m-0">{{ totalPrice() | currency }}</p>
+      </div>
       <div>
-        <button class="btn bg-main text-white">continue shoping</button>
+        <button class="btn bg-main text-white">Continue Shopping</button>
       </div>
     </div>
   </div>

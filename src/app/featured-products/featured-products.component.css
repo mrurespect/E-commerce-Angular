@@ -4,12 +4,50 @@
   padding: 0.5rem; /* Adds padding between items */
 }
 
-@media (max-width: 768px) {
+/* Default style for extra-large screens (1200px and above) */
+@media (min-width: 1200px) {
+  .custom-col {
+    flex: 0 0 20%; /* Each item takes up 20% of the row */
+    max-width: 20%; /* Ensures items do not exceed 20% */
+    padding: 0.5rem; /* Adds padding between items */
+  }
+}
+
+/* Style for large screens (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .custom-col {
+    flex: 0 0 25%; /* On large screens, show 4 items per row */
+    max-width: 25%;
+  }
+}
+
+/* Style for medium screens (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .custom-col {
+    flex: 0 0 33.33%; /* On medium screens, show 3 items per row */
+    max-width: 33.33%;
+  }
+}
+
+/* Style for small screens (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
   .custom-col {
     flex: 0 0 50%; /* On small screens, show 2 items per row */
     max-width: 50%;
   }
 }
+
+/* Style for extra-small screens (up to 575px) */
+@media (max-width: 575px) {
+  .custom-col {
+    /*flex: 0 0 100%;  On extra-small screens, show 1 item per row */
+    /*max-width: 100%;*/
+
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
 
 .wishlist{
   position: absolute;

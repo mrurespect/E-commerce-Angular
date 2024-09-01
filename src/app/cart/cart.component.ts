@@ -71,6 +71,9 @@ export class CartComponent implements OnInit{
     this.refreshCartItems();
     this.toast.showToast('Item successfully deleted!', 1500,"error");
   }
+  totalPrice() {
+    return this._CartService.getTotalCartPrice();
+  }
   refreshCartItems() {
     this.cartItems = this._CartService.getCartItems();
   }

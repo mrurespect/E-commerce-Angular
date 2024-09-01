@@ -8,7 +8,7 @@
     <i class="fa-solid text-main fa-magnifying-glass position-absolute top-50 end-0 translate-middle px-2 cursor-pointer"></i>
   </div>
 
-  <div class="row">
+  <div class="row overflow-hidden">
       <div *ngIf="name" class="col-md-6 d-flex justify-content-center align-items-center flex-column text-center">
         <div class="w-25" style="height: 1px; background-color: #28A745; align-self: flex-start"></div>
         <h4 class="mt-3" style="color: #343A40;">
@@ -19,7 +19,7 @@
         </p>
         <div class="w-100" style="height: 1px; background-color: #28A745;"></div>
       </div>
-    <div *ngFor="let product of products |search:searchTerm" class="custom-col col-md-2 col-6">
+    <div *ngFor="let product of products |search:searchTerm" class="custom-col col-md-2 col-6 ">
       <div class="product px-3 py-4 text-center position-relative">
         <div class="wishlist">
           <div [routerLink]="['/productsdetails',product.id]" class="p-2 m-1 rounded d-flex justify-content-center align-items-center">
@@ -31,7 +31,6 @@
           <div (click)="addToCart(product)" class="p-2 m-1 rounded d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-cart-plus fs-6 "></i>
           </div>
-
         </div>
         <a [routerLink]="['/productsdetails',product.id]">
           <img class="mx-auto" [src]="product.imageURL" style="width: 100px;height: 100px;object-fit: contain" alt="">
