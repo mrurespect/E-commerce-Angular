@@ -32,8 +32,10 @@
             <i class="fa-solid fa-cart-plus fs-6 "></i>
           </div>
         </div>
-        <a [routerLink]="['/productsdetails',product.id]">
-          <img class="mx-auto" [src]="product.imageURL" style="width: 100px;height: 100px;object-fit: contain" alt="">
+        <a [routerLink]="isLinkDisabled ? null : ['/productsdetails', product.id]"
+           [class.disabled]="isLinkDisabled"
+           (click)="isLinkDisabled ? $event.preventDefault() : null">
+          <img class="mx-auto" [lazyLoad]="product.imageURL" style="width: 100px;height: 100px;object-fit: contain" alt="">
           <span class="d-block text-main fw-bold font-sm text-center">{{product.category}}</span>
           <h3 class="h6 fw-bolder">{{product.title | seemore:3}}</h3>
           <div class="d-flex justify-content-between align-items-baseline">

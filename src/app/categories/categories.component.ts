@@ -5,11 +5,13 @@ import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {NgForOf, NgIf, TitleCasePipe} from "@angular/common";
 import {Product} from "../product";
 import {FeaturedProductsComponent} from "../featured-products/featured-products.component";
+import {SpinnerComponent} from "../spinner/spinner.component";
+import {LazyLoadImageModule} from "ng-lazyload-image";
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [CarouselModule, NgIf, RouterLink, NgForOf, FeaturedProductsComponent, TitleCasePipe],
+  imports: [CarouselModule, NgIf, RouterLink, NgForOf, FeaturedProductsComponent, TitleCasePipe, SpinnerComponent, LazyLoadImageModule],
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })

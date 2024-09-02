@@ -1,4 +1,7 @@
-<app-main-slider/>
-<app-offer/>
-<app-categories [show]='false' />
-<app-featured-products [products]="products"/>
+<app-spinner *ngIf="products.length===0;else content"/>
+<ng-template #content>
+  <app-main-slider/>
+  <app-offer/>
+  <app-categories [show]='false' />
+  <app-featured-products [products]="products"/>
+</ng-template>

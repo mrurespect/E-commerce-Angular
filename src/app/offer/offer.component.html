@@ -1,11 +1,11 @@
-<div class="container-fluid ">
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner" >
-      <div class="carousel-item active" *ngFor="let offer of OFFERS" >
+<div class="container-fluid">
+  <div #carousel id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item" data-bs-interval="3000" *ngFor="let offer of OFFERS; let i = index" [class.active]="i === 0">
         <img [src]="offer" class="d-block w-100 object-fit-contain" style="min-height: 125px" alt="...">
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <button id="prev" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
@@ -15,4 +15,3 @@
     </button>
   </div>
 </div>
-

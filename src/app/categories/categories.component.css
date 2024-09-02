@@ -1,3 +1,12 @@
 .translate{
   transform: translate(calc(-50%),calc(-50% - 8px));
 }
+#popularCat{
+  width: 75%;
+}
+
+@media (max-width: 575px) {
+  #popularCat{
+    width: 100%;
+  }
+}

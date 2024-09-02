@@ -5,16 +5,18 @@ import {Product} from "../product";
 import {NgForOf, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {SeemorePipe} from "../seemore.pipe";
+import {SpinnerComponent} from "../spinner/spinner.component";
+import {LazyLoadImageModule} from "ng-lazyload-image";
 
 @Component({
   selector: 'app-main-slider',
   standalone: true,
-  imports: [CarouselModule, NgForOf, NgIf, RouterLink, SeemorePipe],
+  imports: [CarouselModule, NgForOf, NgIf, RouterLink, SeemorePipe, SpinnerComponent, LazyLoadImageModule],
   templateUrl: './main-slider.component.html',
   styleUrl: './main-slider.component.css'
 })
 
-export class MainSliderComponent{
+export class MainSliderComponent implements OnInit{
 
    productImages:string[]=[];
    products:Product[]=[];
@@ -37,12 +39,15 @@ export class MainSliderComponent{
   }
 
  constructor(private _ProductService:ProductService) {
-   this._ProductService.getProducts().subscribe((pr:Product[])=>{
-     this.products=pr;
-     this.productImages=pr.map((p:Product) => {
-       return p?.imageURL;
-     });
-   })
+
  }
+  ngOnInit(): void {
+    this._ProductService.getProducts().subscribe((pr:Product[])=>{
+      this.products=pr;
+      //this.productImages=pr.map((p:Product) => {
+      //  return p?.imageURL;
+      //});
+    })
+  }
 
 }

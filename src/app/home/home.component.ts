@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CurrencyPipe, LowerCasePipe, NgForOf} from "@angular/common";
+import {CurrencyPipe, LowerCasePipe, NgForOf, NgIf} from "@angular/common";
 import {Product} from "../product";
 import {ProductService} from "../product.service";
 import {RouterLink} from "@angular/router";
@@ -8,6 +8,7 @@ import {CategoriesComponent} from "../categories/categories.component";
 import {FormsModule} from "@angular/forms";
 import {FeaturedProductsComponent} from "../featured-products/featured-products.component";
 import {OfferComponent} from "../offer/offer.component";
+import {SpinnerComponent} from "../spinner/spinner.component";
 
 @Component({
   selector: 'app-home',
@@ -22,18 +23,17 @@ import {OfferComponent} from "../offer/offer.component";
     FormsModule,
     FeaturedProductsComponent,
     OfferComponent,
+    NgIf,
+    SpinnerComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
   products:Product[]=[];
-  searchTerm:string="";
-
   constructor(private _ProductService:ProductService) {
     _ProductService.getProducts().subscribe({
       next:(data)=> {
-        console.log(data);
         this.products=data;
       },
       error:(err)=> console.log("error getting products"+err)

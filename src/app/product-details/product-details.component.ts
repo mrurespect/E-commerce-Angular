@@ -6,6 +6,8 @@ import {DollarToDhPipe} from "../dollar-to-dh.pipe";
 import {SeemorePipe} from "../seemore.pipe";
 import {CartService} from "../cart.service";
 import {ToastComponent} from "../toast/toast.component";
+import {SpinnerComponent} from "../spinner/spinner.component";
+import {MainSliderComponent} from "../main-slider/main-slider.component";
 
 @Component({
   selector: 'app-product-details',
@@ -19,7 +21,9 @@ import {ToastComponent} from "../toast/toast.component";
     RouterLink,
     SeemorePipe,
     TitleCasePipe,
-    ToastComponent
+    ToastComponent,
+    SpinnerComponent,
+    MainSliderComponent
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
@@ -27,7 +31,7 @@ import {ToastComponent} from "../toast/toast.component";
 
 export class ProductDetailsComponent implements OnInit{
   productId:any;
-  productDetail:any;
+  productDetail:any=null;
   numOfStars: any[] = [];
   halfStar =false;
   original:boolean=false;

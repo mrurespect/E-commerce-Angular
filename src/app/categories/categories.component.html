@@ -1,29 +1,31 @@
-<div *ngIf="show" class="container ">
+<app-spinner *ngIf="categories.length===0;else content"/>
+<ng-template #content>
+<div *ngIf="show" class="container">
   <h3 class="h5 fw-bold py-2 mt-2">Shop by Popular Categories </h3>
   <owl-carousel-o [options]="customOptions">
       <ng-template carouselSlide>
         <a [routerLink]="['/categories',categories[0]]">
-          <img src="./assets/images/categories/img_e.png" width="250" height="200" class="object-fit-fill"  >
+          <img [lazyLoad]="'./assets/images/categories/img_e.png'" width="250" height="200" class="object-fit-fill"  >
         </a>
         <p class="fw-bold text-center py-2">{{categories[0]|titlecase}}</p>
       </ng-template>
       <ng-template carouselSlide>
         <a [routerLink]="['/categories',categories[1]]">
-          <img src="./assets/images/categories/img_j.png" width="250" height="200" class="object-fit-fill"  >
+          <img [lazyLoad]="'./assets/images/categories/img_j.png'" width="250" height="200" class="object-fit-fill"  >
         </a>
         <p class="fw-bold text-center py-2">{{categories[1]|titlecase}}</p>
 
       </ng-template>
       <ng-template carouselSlide>
         <a [routerLink]="['/categories',categories[2]]">
-          <img src="./assets/images/categories/img-m.png"  width="250" height="200" class="object-fit-fill" >
+          <img [lazyLoad]="'./assets/images/categories/img-m.png'"  width="250" height="200" class="object-fit-fill" >
         </a>
         <p class="fw-bold text-center py-2">{{categories[2]|titlecase}}</p>
 
       </ng-template>
       <ng-template carouselSlide>
         <a [routerLink]="['/categories',categories[3]]">
-          <img src="./assets/images/categories/img_w.png" width="250" height="200" class="object-fit-cover">
+          <img [lazyLoad]="'./assets/images/categories/img_w.png'" width="250" height="200" class="object-fit-cover">
         </a>
         <p class="fw-bold text-center py-2">{{categories[3]|titlecase}}</p>
       </ng-template>
@@ -31,11 +33,11 @@
 </div>
 <div *ngIf="!show" class="container text-center my-5">
   <h3 class="h5 fw-bold py-2 mt-2">Shop by Popular Categories </h3>
-  <div  class="row w-75 mx-auto my-5">
+  <div id="popularCat"  class="row mx-auto my-5">
     <div class="col-lg-3 col-6">
       <div class="bg-main-light mx-auto rounded-pill position-relative" style="width:160px ;height: 160px">
         <a [routerLink]="['/categories',categories[3]]">
-          <img src="./assets/images/categories/women.png" width="105" class="top-50 start-50 translate  position-absolute" alt="">
+          <img [lazyLoad]="'./assets/images/categories/women.png'" width="105" class="top-50 start-50 translate  position-absolute" alt="">
         </a>
       </div>
       <p class="fw-bold text-center py-2">{{categories[3]|titlecase}}</p>
@@ -43,7 +45,7 @@
     <div class="col-lg-3 col-6">
       <div class="bg-main-light mx-auto rounded-pill position-relative" style="width:160px ;height: 160px">
         <a [routerLink]="['/categories',categories[2]]">
-          <img src="./assets/images/categories/men.png" width="105" class="top-50 start-50 translate  position-absolute" alt="">
+          <img [lazyLoad]="'./assets/images/categories/men.png'" width="105" class="top-50 start-50 translate  position-absolute" alt="">
         </a>
       </div>
       <p class="fw-bold text-center py-2">{{categories[2]|titlecase}}</p>
@@ -51,7 +53,7 @@
     <div class="col-lg-3 col-6">
       <div class="bg-main-light mx-auto rounded-pill position-relative" style="width:160px ;height: 160px">
         <a [routerLink]="['/categories',categories[1]]">
-          <img src="./assets/images/categories/jewelry.png" width="125" class="top-50 start-50 translate  position-absolute" alt="">
+          <img [lazyLoad]="'./assets/images/categories/jewelry.png'" width="125" class="top-50 start-50 translate  position-absolute" alt="">
         </a>
       </div>
       <p class="fw-bold text-center py-2">{{categories[1]|titlecase}}</p>
@@ -59,7 +61,7 @@
     <div class="col-lg-3 col-6">
       <div class="bg-main-light mx-auto rounded-pill position-relative" style="width:160px ;height: 160px">
         <a [routerLink]="['/categories',categories[0]]">
-          <img src="./assets/images/categories/electronics.png" width="100" class="top-50 start-50 translate  position-absolute" alt="">
+          <img [lazyLoad]="'./assets/images/categories/electronics.png'" width="100" class="top-50 start-50 translate  position-absolute" alt="">
         </a>
       </div>
       <p class="fw-bold text-center py-2">{{categories[0]|titlecase}}</p>
@@ -69,5 +71,5 @@
 <div *ngIf="show" class="container py-2">
   <app-featured-products [products]="productsByCat" [name]="name"/>
 </div>
-
+</ng-template>
 
