@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/ecommerce",
-
+            "baseHref": "/E-commerce-Angular/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -104,10 +104,11 @@
           }
         },
         "deploy": {
-          "builder": "@angular-cli-ghpages:deploy",
+          "builder": "angular-cli-ghpages:deploy",
           "options": {
             "repo": "https://github.com/mrurespect/E-commerce-Angular.git",
-            "branch": "gh-pages"
+            "branch": "gh-pages",
+            "dir": "dist/ecommerce/browser"
           }
         }
       }

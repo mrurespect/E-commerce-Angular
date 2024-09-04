@@ -6,7 +6,8 @@
     "start": "ng serve",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build": "ng build"
+    "build": "ng build --base-href /E-commerce-Angular/",
+    "deploy": "ng deploy"
   },
   "private": true,
   "dependencies": {

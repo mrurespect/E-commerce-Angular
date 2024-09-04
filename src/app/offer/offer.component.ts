@@ -14,19 +14,19 @@ let bootstrap: any;
   templateUrl: './offer.component.html',
   styleUrl: './offer.component.css'
 })
-export class OfferComponent implements AfterViewInit ,OnInit{
+export class OfferComponent implements AfterViewInit,OnInit{
 
   protected readonly OFFERS = OFFERS;
-  @ViewChild('carousel', { static: false }) carousel!: ElementRef;
-  ngAfterViewInit() {
-    const carouselElement = this.carousel.nativeElement;
-    new bootstrap.Carousel(carouselElement
-    //  ,{
-    //  interval: 500,
-    //  ride: 'carousel',
-    //  pause: 'active' // Pause carousel on hover
-    //}
-    );
+  //@ViewChild('carousel', { static: false }) carousel!: ElementRef;
+  ngAfterViewInit(){
+  //  const carouselElement = this.carousel.nativeElement;
+  //  new bootstrap.Carousel(carouselElement
+  //  //  ,{
+  //  //  interval: 500,
+  //  //  ride: 'carousel',
+  //  //  pause: 'active' // Pause carousel on hover
+  //  //}
+  //  );
   }
 
   ngOnInit(): void {
