@@ -9,6 +9,11 @@ import {RegisterComponent} from "./register/register.component";
 import {authGuard} from "./auth.guard";
 import {ProductDetailsComponent} from "./product-details/product-details.component";
 import {WishlistComponent} from "./wishlist/wishlist.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {ProductConfigComponent} from "./product-config/product-config.component";
+import {CategoryConfigComponent} from "./category-config/category-config.component";
+import {DashboardMainPageComponent} from "./dashboard-main-page/dashboard-main-page.component";
+import {OrderConfigComponent} from "./order-config/order-config.component";
 
 export const routes: Routes = [
   {path:"",redirectTo:"home",pathMatch:"full"},
@@ -21,6 +26,13 @@ export const routes: Routes = [
   { path: 'categories', redirectTo: 'categories/electronics', pathMatch: 'full'},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
+  {path:"dashboard",component:DashboardComponent,children:[
+      {path:"main",component:DashboardMainPageComponent},
+      {path:"",redirectTo:"main",pathMatch:"full"},
+      {path:"product",component:ProductConfigComponent},
+      {path:"category",component:CategoryConfigComponent},
+      {path:"order",component:OrderConfigComponent},
+    ]},
   //{path:"settings",loadChildren:()=>import("./admin/routes").then(r=>r.ADMIN_ROUTES),canActivate:[authGuard]}, // group of component lazy loading
   //{path:"settings",loadChildren:()=>import('./settings/settings.module').then(mod=>mod.SettingsModule)}, //module lazy loading
   {path:"**",loadComponent:()=>import('./notfound/notfound.component').then(cp=>cp.NotfoundComponent)}, // standalone component lazy loading

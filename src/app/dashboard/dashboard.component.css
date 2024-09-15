@@ -1,15 +1,30 @@
 /* Default styles for nav-link */
 .nav-link {
   color: #343a40; /* Default text color */
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.5rem;
+  margin: 0 15px  0 0;
   border-radius: 0.25rem;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-  font-size: 14px; /* Adjust text size */
+  font-size: 15px; /* Adjust text size */
+  font-weight: 600;
+
 }
 
-/* Icon styles within nav-link */
-.nav-link i {
-  font-size: 20px; /* Adjust icon size */
+@media (max-width: 768px) {
+  .nav-link {
+    text-align: center;
+    margin: 0;
+   }
+  .nav-link i{
+    margin: 0;
+  }
+  .nav-item{
+    margin: 0;
+  }
+}
+
+.nav-link span {
+  color: #6c757d;
 }
 
 /* Styles for each nav-item */
@@ -19,7 +34,15 @@
 
 /* Active link styles */
 .active-link i {
-  color: #0aad0a;
+  color: #1E5B1E;
+}
+.active-link span {
+  color: #1E5B1E; /* Default text color */
+}
+
+.active-link {
+  background-color: #CEEFCE;
+  color: red; /* Default text color */
 }
 
 /* Hover effect for links */
@@ -41,4 +64,13 @@
   margin-left: 0.5rem; /* Adjusts space to the left */
   margin-right: 1rem; /* Adjusts space to the right */
 }
-
+.border-end-dotted{
+  border-right: #6c757d 2px dotted;
+}
+ul span{
+  color:#6c757d ;
+  font-size: 14px;
+  font-weight: 600;
+  padding:5px 5px;
+  margin-top: 20px;
+}
