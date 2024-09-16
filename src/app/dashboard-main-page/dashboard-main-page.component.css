@@ -1,0 +1,39 @@
+.picture{
+  background-image: url('/E-commerce-Angular/assets/images/dashboard/add product.webp');
+  background-position: center center;
+  background-size: 100% auto;
+  height: 250px;
+}
+@media (max-width: 768px) {
+  .picture {
+    min-height: 150px;
+    background-size: cover;
+  }
+}
+h3{
+  font-weight: 600;
+  text-align: center;
+}
+
+#btn {
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+#btn:hover {
+  background-color: green;
+}
+
+#btn:active {
+  transform: scale(0.95);
+}
+
+.card-lg {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0 2px rgba(145, 158, 171, .2), 0 12px 24px -4px rgba(145, 158, 171, .12);
+}
